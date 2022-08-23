@@ -13,7 +13,6 @@ error_chain! {
 
 #[tokio::main]
 pub async fn main() -> Result<Vec<String>> {
-// pub async fn main() -> Result<()> {
   let res = reqwest::get("https://newsdig.tbs.co.jp/list/latest")
     .await?
     .text()
@@ -25,18 +24,8 @@ pub async fn main() -> Result<Vec<String>> {
     .find(Name("a"))
     .filter_map(|n| n.attr("href"))
     .for_each(|x| cnt.push(x.to_string()));
-    // .for_each(|x| println!("{}", x));
-    //
-    //
-    // println!("{:?}", cnt);
-    // Result<Vec<String>>
   Ok(cnt)
-  // Ok(())
-    // return cnt;
-    //
-    // Some(cnt) => {
-    //     Ok(cnt)
-    // }
+
 }
 
 
