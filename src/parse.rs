@@ -1,7 +1,7 @@
-// use clap::Parser;
 use error_chain::error_chain;
 use select::document::Document;
 use select::predicate::Name;
+use regex::Regex;
 
 
 error_chain! {
